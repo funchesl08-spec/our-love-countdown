@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#170d2d">
+  <title>我们的恋爱纪念日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <button class="sound-button" id="soundButton" aria-label="开启声音" title="开启声音">
+    <span class="sound-icon">♪</span>
+    <span class="sound-label">开启声音</span>
+  </button>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow reveal">OUR LITTLE UNIVERSE</p>
+      <div class="heart-orbit reveal" aria-hidden="true">
+        <span class="orbit-dot"></span>
+        <span class="core-heart">♥</span>
+      </div>
+      <h1 class="reveal">与你相遇，是宇宙写给我的情书</h1>
+      <p class="subtitle reveal">
+        从 <span class="highlight">2026 年 4 月 1 日</span> 起，平凡的日子开始闪闪发光
+      </p>
+
+      <div class="glass-card together-card reveal">
+        <p class="card-caption">我们已经相爱</p>
+        <div class="time-grid" id="togetherTimer">
+          <div class="time-unit featured"><strong id="togetherDays">0</strong><span>天</span></div>
+          <div class="time-unit"><strong id="togetherHours">00</strong><span>时</span></div>
+          <div class="time-unit"><strong id="togetherMinutes">00</strong><span>分</span></div>
+          <div class="time-unit"><strong id="togetherSeconds">00</strong><span>秒</span></div>
+        </div>
+        <p class="tiny-note">每一秒，都在把“我们”写得更长一点</p>
+      </div>
+
+      <button class="scroll-hint" id="scrollHint" aria-label="继续向下">
+        <span>继续读我们的故事</span>
+        <i></i>
+      </button>
+    </section>
+
+    <section class="memory-section" id="story">
+      <div class="section-heading reveal">
+        <p class="eyebrow">THE NEXT CHAPTER</p>
+        <h2>距离我们的下一个周年纪念日</h2>
+      </div>
+
+      <div class="anniversary-layout">
+        <div class="glass-card countdown-card reveal">
+          <div class="date-badge">
+            <span id="nextYear">2027</span>
+            <strong>04 · 01</strong>
+          </div>
+          <div class="countdown-line">
+            <div><strong id="nextDays">0</strong><span>天</span></div>
+            <b>:</b>
+            <div><strong id="nextHours">00</strong><span>时</span></div>
+            <b>:</b>
+            <div><strong id="nextMinutes">00</strong><span>分</span></div>
+            <b>:</b>
+            <div><strong id="nextSeconds">00</strong><span>秒</span></div>
+          </div>
+          <div class="progress-wrap">
+            <div class="progress-copy">
+              <span>这一年的旅程</span>
+              <span id="progressText">0%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+        </div>
+
+        <article class="glass-card letter-card reveal">
+          <span class="quote-mark">“</span>
+          <p id="loveLetter">
+            我喜欢日落，喜欢晚风，喜欢那些细碎又温柔的瞬间。<br>
+            但最喜欢的，是这些瞬间里刚好都有你。
+          </p>
+          <div class="signature">— 永远站在你这边的人</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="moments-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">OUR MOMENTS</p>
+        <h2>一些值得收藏的日子</h2>
+      </div>
+      <div class="timeline">
+        <article class="moment reveal">
+          <span class="moment-dot">01</span>
+          <div>
+            <time>2026.04.01</time>
+            <h3>故事正式开始</h3>
+            <p>这一天，我们把彼此写进了未来。</p>
+          </div>
+        </article>
+        <article class="moment reveal">
+          <span class="moment-dot">♥</span>
+          <div>
+            <time>每一个今天</time>
+            <h3>正在共同创造</h3>
+            <p>照片、旅行、争吵与和好，都会成为独一无二的收藏。</p>
+          </div>
+        </article>
+        <article class="moment reveal">
+          <span class="moment-dot">∞</span>
+          <div>
+            <time>未完待续</time>
+            <h3>去往更远的以后</h3>
+            <p>愿我们有数不清的下一站，和永远聊不完的话。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wish-section reveal">
+      <div class="wish-card">
+        <span class="small-stars">✦　·　✧</span>
+        <h2>点击许下一个小愿望</h2>
+        <p>闭上眼睛三秒，再把它交给星星。</p>
+        <button id="wishButton">为我们点亮星河 <span>♥</span></button>
+        <div class="wish-message" id="wishMessage" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Made with</span><b>♥</b><span>for my favorite person</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status">愿望已被星星收到 ✨</div>
+  <script src="script.js"></script>
+</body>
+</html>
